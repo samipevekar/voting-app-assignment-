@@ -46,6 +46,7 @@ app.use(cors({
 }));
 
 
+// Apply rate limiting to API routes only (not to all requests)
 app.use('/api/', limiter);
 
 // Middleware
@@ -56,18 +57,21 @@ app.use('/api/auth', authRoutes);
 app.use('/api/votes', voteRoutes);
 app.use('/api/results', resultRoutes);
 
+// Health check route (without rate limiting)
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
+// Socket.io
 const { broadcastResults } = handleSocketConnection(io);
 
 // MongoDB connection
 connectDB();
 
+// Broadcast results every 30 seconds for demo purposes
 setInterval(() => {
   broadcastResults();
-}, 5000);
+}, 30000);
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {

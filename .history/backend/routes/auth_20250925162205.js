@@ -4,6 +4,9 @@ import { authenticate } from '../middleware/auth.js';
 
 const router = express.Router();
 
+// @route   POST /api/auth/login
+// @desc    User login
+// @access  Public
 router.post('/login', login);
 router.get('/profile', authenticate, getProfile);
 

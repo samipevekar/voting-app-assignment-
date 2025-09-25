@@ -98,6 +98,7 @@ const Results = ({ socket }) => {
   };
 
   const [winningOptionId] = getWinningOption();
+  const winningOption = VOTE_OPTIONS[winningOptionId];
 
   if (loading) {
     return (
@@ -341,6 +342,7 @@ const Results = ({ socket }) => {
             </div>
           </div>
 
+          {/* Vote Again Section */}
             
         </div>
       </div>

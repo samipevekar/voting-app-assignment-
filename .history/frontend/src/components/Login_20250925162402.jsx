@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 flex items-center justify-center p-4">
-
+        
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-indigo-400 to-pink-400 rounded-full opacity-20 blur-3xl"></div>
@@ -42,7 +42,7 @@ const Login = () => {
       {/* Main Card */}
       <div className="relative max-w-md w-full">
         <div className="bg-white backdrop-blur-sm bg-opacity-95 rounded-3xl shadow-2xl border border-white border-opacity-20 p-8 relative overflow-hidden">
-            
+          {/* Card Background Pattern */}
           <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></div>
           
           {/* Header */}

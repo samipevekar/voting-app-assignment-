@@ -35,6 +35,7 @@ const Voting = ({ onVoteCast, socket }) => {
   if (user?.hasVoted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex items-center justify-center p-4">
+        {/* Background Decorations */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full opacity-20 blur-3xl"></div>
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-teal-400 to-cyan-400 rounded-full opacity-20 blur-3xl"></div>
@@ -44,6 +45,7 @@ const Voting = ({ onVoteCast, socket }) => {
           <div className="bg-white backdrop-blur-sm bg-opacity-95 rounded-3xl shadow-2xl border border-white border-opacity-20 p-8 text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-500 to-emerald-500"></div>
             
+            {/* Success Animation */}
             <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mb-6 shadow-lg animate-bounce">
               <CheckCircle className="w-12 h-12 text-white" />
             </div>
@@ -85,6 +87,7 @@ const Voting = ({ onVoteCast, socket }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+      {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20 blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-indigo-400 to-pink-400 rounded-full opacity-20 blur-3xl"></div>
@@ -93,6 +96,7 @@ const Voting = ({ onVoteCast, socket }) => {
 
       <div className="relative py-12 px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Header Section */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl mb-6 shadow-2xl">
               <Vote className="w-10 h-10 text-white" />
@@ -194,6 +198,7 @@ const Voting = ({ onVoteCast, socket }) => {
                     : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-95'
                 }`}
               >
+                {/* Button Background Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 
                 <div className="relative flex items-center justify-center space-x-3">
@@ -212,6 +217,7 @@ const Voting = ({ onVoteCast, socket }) => {
                 </div>
               </button>
 
+              {/* Selection Indicator */}
               {selectedOption && !loading && (
                 <div className="mt-4 text-center">
                   <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full border border-blue-200">

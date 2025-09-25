@@ -41,6 +41,7 @@ const AppContent = () => {
         <Results socket={socket} />
       )}
       
+      {/* Navigation Button */}
       {!user?.hasVoted && <div className="fixed bottom-4 right-4">
         <button
           onClick={toggleView}

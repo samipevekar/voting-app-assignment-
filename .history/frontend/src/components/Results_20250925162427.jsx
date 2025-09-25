@@ -34,7 +34,8 @@ const Results = ({ socket }) => {
     try {
       const response = await voteAPI.getResults();
       const newResults = response.data;
-
+      
+      // Check which options have changed for animation
       const changed = {};
       Object.keys(newResults).forEach(key => {
         if (key !== 'total' && newResults[key] !== results[key]) {
@@ -85,6 +86,7 @@ const Results = ({ socket }) => {
     }
   }, [socket]);
 
+  // Auto-refresh every 5 seconds as fallback
   useEffect(() => {
     if (!socket) {
       const interval = setInterval(fetchResults, 5000);
@@ -98,6 +100,7 @@ const Results = ({ socket }) => {
   };
 
   const [winningOptionId] = getWinningOption();
+  const winningOption = VOTE_OPTIONS[winningOptionId];
 
   if (loading) {
     return (
@@ -341,6 +344,7 @@ const Results = ({ socket }) => {
             </div>
           </div>
 
+          {/* Vote Again Section */}
             
         </div>
       </div>

@@ -93,6 +93,7 @@ const Voting = ({ onVoteCast, socket }) => {
 
       <div className="relative py-12 px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Header Section */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl mb-6 shadow-2xl">
               <Vote className="w-10 h-10 text-white" />
@@ -194,6 +195,7 @@ const Voting = ({ onVoteCast, socket }) => {
                     : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-2xl hover:shadow-3xl hover:scale-105 active:scale-95'
                 }`}
               >
+                {/* Button Background Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 
                 <div className="relative flex items-center justify-center space-x-3">
@@ -212,6 +214,7 @@ const Voting = ({ onVoteCast, socket }) => {
                 </div>
               </button>
 
+              {/* Selection Indicator */}
               {selectedOption && !loading && (
                 <div className="mt-4 text-center">
                   <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full border border-blue-200">

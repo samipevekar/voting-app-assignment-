@@ -341,6 +341,7 @@ const Results = ({ socket }) => {
             </div>
           </div>
 
+          {/* Vote Again Section */}
             
         </div>
       </div>

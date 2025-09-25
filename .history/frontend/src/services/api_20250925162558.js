@@ -10,6 +10,7 @@ const api = axios.create({
   withCredentials: true 
 });
 
+// Add auth token to requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('sessionId');
   if (token) {
@@ -20,6 +21,7 @@ api.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
+// Response interceptor for better error handling
 api.interceptors.response.use(
   (response) => response,
   (error) => {

@@ -26,10 +26,10 @@ const io = new Server(server, {
   }
 });
 
-
+// ✅ FIXED Rate Limiting - More generous for development
 const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, 
-  max: 1000, 
+  windowMs: 1 * 60 * 1000, // 1 minute (reduced from 15 minutes)
+  max: 1000, // Increased limit for development
   message: {
     error: 'Too many requests, please try again later.'
   },
@@ -37,7 +37,7 @@ const limiter = rateLimit({
   legacyHeaders: false,
 });
 
-
+// ✅ FIXED CORS Middleware - More permissive
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:5173', // Allow all origins
   credentials: true,
@@ -45,7 +45,10 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
+// Handle preflight requests
+// app.options('*', cors());/
 
+// Apply rate limiting to API routes only (not to all requests)
 app.use('/api/', limiter);
 
 // Middleware
@@ -56,18 +59,21 @@ app.use('/api/auth', authRoutes);
 app.use('/api/votes', voteRoutes);
 app.use('/api/results', resultRoutes);
 
+// Health check route (without rate limiting)
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });
 });
 
+// Socket.io
 const { broadcastResults } = handleSocketConnection(io);
 
 // MongoDB connection
 connectDB();
 
+// Broadcast results every 30 seconds for demo purposes
 setInterval(() => {
   broadcastResults();
-}, 5000);
+}, 30000);
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {

@@ -67,7 +67,7 @@ connectDB();
 
 setInterval(() => {
   broadcastResults();
-}, 5000);
+}, 30000);
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {

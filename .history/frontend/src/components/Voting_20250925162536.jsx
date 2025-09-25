@@ -212,6 +212,7 @@ const Voting = ({ onVoteCast, socket }) => {
                 </div>
               </button>
 
+              {/* Selection Indicator */}
               {selectedOption && !loading && (
                 <div className="mt-4 text-center">
                   <div className="inline-flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full border border-blue-200">
