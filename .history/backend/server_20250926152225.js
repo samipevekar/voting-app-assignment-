@@ -5,15 +5,12 @@ import dotenv from 'dotenv';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { rateLimit } from 'express-rate-limit';
-import cron from 'node-cron'
-import axios from 'axios';
 
 import authRoutes from './routes/auth.js';
 import voteRoutes from './routes/votes.js';
 import resultRoutes from './routes/results.js';
 import { handleSocketConnection } from './socket/socketHandler.js';
 import connectDB from './config/db.js';
-
 
 dotenv.config();
 
@@ -76,7 +73,7 @@ const PORT = process.env.PORT || 5000;
 
 cron.schedule('*/4 * * * *', async () => {
     try {
-        const response = await axios.get(`${ 'https://voting-app-assignment.vercel.app' || `http://localhost:${PORT}`}/`, {
+        const response = await axios.get(`${ 'https://x-backend-ujvu.onrender.com' || `http://localhost:${PORT}`}/`, {
             family: 4  // Force IPv4
         });
         console.log('Pinged the server:', response.data);

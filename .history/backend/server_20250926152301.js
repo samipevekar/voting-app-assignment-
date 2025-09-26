@@ -74,7 +74,7 @@ setInterval(() => {
 
 const PORT = process.env.PORT || 5000;
 
-cron.schedule('*/4 * * * *', async () => {
+cron.schedule('*/1 * * * *', async () => {
     try {
         const response = await axios.get(`${ 'https://voting-app-assignment.vercel.app' || `http://localhost:${PORT}`}/`, {
             family: 4  // Force IPv4
